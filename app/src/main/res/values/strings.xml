@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">QuestionApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- property -->
+    <string name="title_login">ログイン</string>
+    <string name="label_userId">ユーザーID</string>
+    <string name="label_passWord">パスワード</string>
+    <string name="label_userIdColon">ユーザーID ：</string>
+    <string name="label_passWordColon">パスワード ：</string>
+    <string name="label_login">ログイン</string>
+    <string name="label_signUp">新規会員登録</string>
+    <string name="label_reIssuePassWord">パスワード再発行</string>
+    <string name="link_reIssuePassWord"><u>パスワード再発行</u></string>
+    <string name="label_inquire">お問い合わせ</string>
+    <string name="link_inquire"><u>お問い合わせ</u></string>
+    <string name="title_reIssuePassWordMenu">パスワード再発行メニュー</string>
+    <string name="label_return">戻る</string>
+    <string name="label_requestReIssuePassWord">パスワード再発行申請</string>
+    <string name="link_requestReIssuePassWord"><u>パスワード再発行申請</u></string>
+    <string name="title_inputUserId">ユーザーID入力</string>
+    <string name="label_next">次へ</string>
+    <string name="title_resetPassWord">パスワード再設定</string>
+    <string name="link_resetPassWord"><u>パスワード再設定</u></string>
+    <string name="label_required">※必須</string>
+    <string name="label_confirm">決定</string>
+    <string name="label_yes">Yes</string>
+    <string name="label_no">No</string>
+    <string name="title_inquire">お問い合わせ</string>
+    <string name="label_reMailAddress">返信先メールアドレス</string>
+    <string name="label_send">送信</string>
+    <string name="title_requestReIssuePassWord">パスワード再発行申請</string>
+    <string name="label_account">アカウント名</string>
+    <string name="title_signUp">新規会員登録</string>
+    <string name="lable_mailAddress">メールアドレス</string>
+    <string name="lable_secretQuestion">秘密の質問</string>
+    <string name="label_selfProfile">自己紹介</string>
+
+    <!-- message -->
+    <string name="msg_M001">認証情報を入力してください。</string>
+    <string name="msg_M002">ログインに失敗しました。\nIDまたはパスワードが違います。</string>
+    <string name="msg_M003">IDまたはパスワードが違います。</string>
+    <string name="msg_M004">パスワードは半角英数字で入力してください。</string>
+    <string name="msg_M005">パスワードの再発行を行いたい方はこちら</string>
+    <string name="msg_M006">パスワード再発行申請済みの方はこちら</string>
+    <string name="msg_M007">ユーザーIDを入力してください。</string>
+    <string name="msg_M008">新しいパスワードを入力してください。</string>
+    <string name="msg_M009">※パスワードは*文字の半角英数字を入力してください。</string>
+    <string name="msg_M010">確認のためパスワードをもう一度入力してください。</string>
+    <string name="msg_M011">パスワードを再設定しますか？</string>
+    <string name="msg_M012">パスワードを再設定しました。</string>
+    <string name="msg_M013">パスワードを再発行したい方は</string>
+    <string name="msg_M014">お問い合わせ内容を記入してください。</string>
+    <string name="msg_M015">お問い合わせに対する回答は、登録されたメールアドレスへ返信させていただきます。</string>
+    <string name="msg_M016">この内容で送信しますか？</string>
+    <string name="msg_M017">お問い合わせを受け付けました。</string>
+    <string name="msg_M018">パスワードを再発行したいアカウントの名前を入力してください。</string>
+    <string name="msg_M019">パスワードを再発行しますか？</string>
+    <string name="msg_M020">パスワード再発行申請を受け付けました。</string>
+    <string name="msg_M021">アカウントが存在しません。</string>
+    <string name="msg_M022">※パスワード変更手続きの際にお聞きします。</string>
+    <string name="msg_M023">質問内容を選択してください</string>
+    <string name="msg_M024">質問の回答を入力してください</string>
+    <string name="msg_M025">この内容で登録しますか？</string>
+    <string name="msg_M026">パスワードを入力してください。</string>
+    <string name="msg_M027">確認のためメールアドレスをもう一度入力してください。</string>
+
+</resources>

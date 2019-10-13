@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- ここに書いたドメインには、httpで接続しても怒られなくなる、みたいな感じぽい。 -->
+        <domain includeSubdomains="true">secretp.starfree.jp</domain>
+    </domain-config>
+</network-security-config>
