@@ -20,9 +20,8 @@
         <TextView
             android:id="@+id/inputUserId_label_message1"
             android:layout_width="330dp"
-            android:layout_height="26dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="35dp"
-            android:text="@string/msg_M007"
             android:textColor="#000000"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -56,7 +55,6 @@
                 android:layout_width="210dp"
                 android:layout_height="45dp"
                 android:background="@drawable/text_frame"
-                android:hint="hint"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.87"

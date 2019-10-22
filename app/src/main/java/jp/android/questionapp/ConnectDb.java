@@ -80,59 +80,93 @@ public class ConnectDb extends AsyncTask<Map<String, String>, Void, List<Map<Str
             if (status == HttpURLConnection.HTTP_OK) {
                 // レスポンスを受け取る処理
                 InputStream stream = httpConn.getInputStream();
-                StringBuffer sb = new StringBuffer();
                 String line;
                 int dataCnt = 0;
                 BufferedReader br = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
                 while ((line = br.readLine()) != null) {
-                    sb.append(line);
-                    dataCnt++;
-                }
-                // JSON解析：json_arrayにデータを格納。
-                try{
-                    // 取得データが0件の場合
+                    // 1行目：リターンコード判定
                     if (dataCnt == 0) {
-                        Log.e("Error","JSONデータがありません");
-                    // 取得データが1件のみの場合
-                    } else if(dataCnt == 1) {
-                        JSONObject jsonObj = new JSONObject(sb.toString().trim());
-                        Iterator<String> keysItr = jsonObj.keys();
-                        // 取得データのカラム分だけループ
-                        while (keysItr.hasNext()) {
-                            Map<String, String> resultData = new HashMap<String, String>();
-                            String key = keysItr.next();
-                            resultData.put(key, String.valueOf(jsonObj.get(key)));
-                            resultList.add(resultData);
+                        String rtnCode = line.substring(0,1);
+                        // リターンコード"0"の場合 処理続行
+                        if ("0".equals(rtnCode)) {
+                            Log.e("Info","php正常終了");
+                        // リターンコード"9"の場合 エラー
+                        } else if ("9".equals(rtnCode)) {
+                            Log.e("Error","phpエラー");
+                            break;
+                        } else {
+                            Log.e("Error","予期していないphp返却値");
+                            break;
                         }
-                    // 取得データが複数件の場合
-                    } else {
-                        JSONArray jsonArray = new JSONArray(sb.toString().trim());
-                        // 取得データの件数分だけループ
-                        for (int i=0; i<jsonArray.length(); i++) {
-                            JSONObject jsonObj = jsonArray.getJSONObject(i);
-                            Iterator<String> keysItr = jsonObj.keys();
-                            // 取得データのカラム分だけループ
-                            while (keysItr.hasNext()) {
-                                Map<String, String> resultData = new HashMap<String, String>();
-                                String key = keysItr.next();
-                                resultData.put(key, String.valueOf(jsonObj.get(key)));
-                                resultList.add(resultData);
+                    // 2行目：jsonデータ
+                    } else if (dataCnt >= 1) {
+                        // JSON解析：json_arrayにデータを格納。
+                        try{
+                            JSONArray jsonArray = new JSONArray(line.trim());
+                            // 取得データの件数分だけループ(行)
+                            for (int i=0; i<jsonArray.length(); i++) {
+                                JSONObject jsonObj = jsonArray.getJSONObject(i);
+                                Iterator<String> keysItr = jsonObj.keys();
+                                // 取得データのカラム分だけループ(列)
+                                while (keysItr.hasNext()) {
+                                    Map<String, String> resultData = new HashMap<String, String>();
+                                    String key = keysItr.next();
+                                    resultData.put(key, String.valueOf(jsonObj.get(key)));
+                                    resultList.add(resultData);
+                                }
                             }
+                        } catch(JSONException e) {
+                            Log.e("Error","JSONデータが不正");
+                            e.printStackTrace();
                         }
                     }
-
-//                    json_array = new JSONArray(str);
-//                    for (int i=0; i < json_array.length(); i++) {
-//                        JSONObject j_obj = json_array.getJSONObject(i);
-//                        Log.i( "Info", j_obj.getString("USER_ID"));
-//                        Log.i( "Info", j_obj.getString("USER_NAME"));
-//                        Log.i( "Info", j_obj.getString("SEQ"));
-//                        Log.i( "Info", j_obj.getString("CREATE_DATE"));
-//                    }
-                }catch(JSONException e){
-                    Log.e("Error","JSONデータが不正");
-                    e.printStackTrace();
+                    dataCnt++;
                 }
+//                // JSON解析：json_arrayにデータを格納。
+//                try{
+//                    // 取得データが0件の場合
+//                    if (dataCnt == 0) {
+//                        Log.e("Error","JSONデータがありません");
+//                    // 取得データが1件のみの場合
+//                    } else if(dataCnt == 1) {
+//                        JSONObject jsonObj = new JSONObject(sb.toString().trim());
+//                        Iterator<String> keysItr = jsonObj.keys();
+//                        // 取得データのカラム分だけループ
+//                        while (keysItr.hasNext()) {
+//                            Map<String, String> resultData = new HashMap<String, String>();
+//                            String key = keysItr.next();
+//                            resultData.put(key, String.valueOf(jsonObj.get(key)));
+//                            resultList.add(resultData);
+//                        }
+//                    // 取得データが複数件の場合
+//                    } else {
+//                        JSONArray jsonArray = new JSONArray(sb.toString().trim());
+//                        // 取得データの件数分だけループ
+//                        for (int i=0; i<jsonArray.length(); i++) {
+//                            JSONObject jsonObj = jsonArray.getJSONObject(i);
+//                            Iterator<String> keysItr = jsonObj.keys();
+//                            // 取得データのカラム分だけループ
+//                            while (keysItr.hasNext()) {
+//                                Map<String, String> resultData = new HashMap<String, String>();
+//                                String key = keysItr.next();
+//                                resultData.put(key, String.valueOf(jsonObj.get(key)));
+//                                resultList.add(resultData);
+//                            }
+//                        }
+//                    }
+//
+////                    json_array = new JSONArray(str);
+////                    for (int i=0; i < json_array.length(); i++) {
+////                        JSONObject j_obj = json_array.getJSONObject(i);
+////                        Log.i( "Info", j_obj.getString("USER_ID"));
+////                        Log.i( "Info", j_obj.getString("USER_NAME"));
+////                        Log.i( "Info", j_obj.getString("SEQ"));
+////                        Log.i( "Info", j_obj.getString("CREATE_DATE"));
+////                    }
+//                }catch(JSONException e){
+//                    Log.e("Error","JSONデータが不正");
+//                    e.printStackTrace();
+//                }
             } else {
                 Log.e("Error","ネットワークエラー");
             }

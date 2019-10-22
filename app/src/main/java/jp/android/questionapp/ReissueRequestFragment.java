@@ -16,7 +16,8 @@ public class ReissueRequestFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_login_reissuerequest, container, false);
-
+        // タイトル設定
+        getActivity().setTitle(R.string.title_requestReIssuePassWord);
         // 送信 ボタン
         Button nextButton = root.findViewById(R.id.requestReIssuePassWord_button_send);
         nextButton.setOnClickListener(new View.OnClickListener(){

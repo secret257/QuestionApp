@@ -30,7 +30,8 @@ public class SignUpFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_login_signup, container, false);
-
+        // タイトル設定
+        getActivity().setTitle(R.string.title_signUp);
 
         return root;
     }

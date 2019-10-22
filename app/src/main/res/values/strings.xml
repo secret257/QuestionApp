@@ -37,6 +37,8 @@
     <string name="lable_mailAddress">メールアドレス</string>
     <string name="lable_secretQuestion">秘密の質問</string>
     <string name="label_selfProfile">自己紹介</string>
+    <string name="label_ok">OK</string>
+
 
     <!-- message -->
     <string name="msg_M001">認証情報を入力してください。</string>
@@ -51,7 +53,7 @@
     <string name="msg_M010">確認のためパスワードをもう一度入力してください。</string>
     <string name="msg_M011">パスワードを再設定しますか？</string>
     <string name="msg_M012">パスワードを再設定しました。</string>
-    <string name="msg_M013">パスワードを再発行したい方は</string>
+    <string name="msg_M013"><u>パスワードを再発行したい方は</u></string>
     <string name="msg_M014">お問い合わせ内容を記入してください。</string>
     <string name="msg_M015">お問い合わせに対する回答は、登録されたメールアドレスへ返信させていただきます。</string>
     <string name="msg_M016">この内容で送信しますか？</string>
@@ -66,5 +68,11 @@
     <string name="msg_M025">この内容で登録しますか？</string>
     <string name="msg_M026">パスワードを入力してください。</string>
     <string name="msg_M027">確認のためメールアドレスをもう一度入力してください。</string>
+    <string name="msg_M028">再発行申請が受理されていません。\n※再発行が受理されるまで、再発行申請から通常1～3日程度かかります。</string>
+    <string name="msg_M029">ユーザーIDが違います。</string>
+    <string name="msg_M030">パスワードは同じものを入力してください。</string>
+    <string name="msg_M031">メールアドレスを入力してください。</string>
+    <string name="msg_M032">お問い合わせ内容を入力してください。</string>
+
 
 </resources>

@@ -6,9 +6,9 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:actionBarStyle">@style/actionBar</item>
+        <item name="android:actionBarTabStyle">@style/actionBar</item>
     </style>
-    <style name="actionBar" parent="Widget.AppCompat.ActionBar">
+    <style name="actionBar" parent="Widget.AppCompat.ActionBar.TabView">
         <!-- タイトルバーの文字配置 -->
         <item name="android:gravity">center</item>
     </style>

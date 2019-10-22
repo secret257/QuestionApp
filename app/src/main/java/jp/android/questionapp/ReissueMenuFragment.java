@@ -17,14 +17,12 @@ import jp.android.questionapp.ui.login.ReissueMenuModel;
 
 public class ReissueMenuFragment extends Fragment {
 
-    private ReissueMenuModel reissueMenuModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        reissueMenuModel =
-                ViewModelProviders.of(this).get(ReissueMenuModel.class);
-        View root = inflater.inflate(R.layout.fragment_login_reissuemenu, container, false);
 
+        View root = inflater.inflate(R.layout.fragment_login_reissuemenu, container, false);
+        // タイトル設定
+        getActivity().setTitle(R.string.title_reIssuePassWordMenu);
         // パスワード再発行申請 リンク
         final TextView textReissueRequest= root.findViewById(R.id.reIssuePassWordMenu_link_requestReIssuePassWord);
         textReissueRequest.setOnClickListener(new View.OnClickListener(){
